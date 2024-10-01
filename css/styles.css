@@ -1,29 +1,81 @@
-#container_Map{
-	flex: 1;
-	/* background-color: red; */
-	justify-content: center;
-	padding-bottom: 10px;
+.body {
+    font-family: 'Source Sans Pro', sans-serif;
 }
+
+body {
+    background-color: rgb(250, 245, 229);
+    font-size: 18px;
+}
+
+.page {
+    width: 80%;
+    background-color: rgb(250, 245, 229);
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+}
+
+#container_Map {
+    flex: 1;
+    justify-content: center;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+}
+
 #choropleth_map {
-	flex : 1;
-	align-items: center;
-	/* border: 1px solid black; */
-	padding-left: 20px;
-	padding-top: 20px;
-	/*height: 1000px;
-	width: 800px;*/
-	
+    flex: 1;
+    align-items: center;
+    padding-left: 20px;
+    padding-top: 20px;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(250, 245, 229); /* Set background to match */
 }
-#container_PieChart{
-	flex: 1;
-	/* background-color: purple; */
-	justify-content: center;
+
+#container_PieChart {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(250, 245, 229); /* Set background to match */
 }
+
 #pie_chart {
-	flex : 1;
-	/* background-color: black; */
-	align-items: center;
-	padding-bottom: 20px;
-	padding-left: 10px;
-	border: 1px solid black;
+    flex: 1;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+}
+
+#container_LineChart{
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+	padding-top: 20px;
+}
+
+#line_chart {
+    flex: 1;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+}
+#container_AreaChart{
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+	padding-top: 20px;
+}
+
+#area_chart {
+    flex: 1;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    background-color: rgb(250, 245, 229); /* Set background to match */
 }

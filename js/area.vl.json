@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 500,
+  "background": "rgb(250, 245, 229)",
+  "title": {"text": "Inflation Trend", "fontSize":20},
+  "data": {
+    "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/Inflation_Rate.csv"
+  },
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "timeUnit": "year",
+      "axis": {"format": "%Y", "title": "Year","grid": false,
+        "labelAngle": 0,
+        "labelFontSize": 14,
+        "titleFontSize": 14}
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Total",
+      "type": "quantitative",
+      "title": "Inflation Rate",
+        "axis": {
+          "grid": false,
+          "ticks": false,
+          "labelFontSize": 14,
+          "titleFontSize": 14
+        }
+    },
+    "tooltip": [
+        {"field": "Year",  "type": "temporal","timeUnit": "year","title": "Year"},
+        {"field": "Total", "type": "quantitative", "title": "Inflation Rate"}
+      ]
+  }
+}

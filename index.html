@@ -11,31 +11,58 @@
 
 
 </head>
-<body>
-<div id="container_Map">
-  <div id="choropleth_map"></div>
-  <script type="text/javascript">
 
-    var spec2 = "js/choropleth_map.vg.json";
-    vegaEmbed('#choropleth_map', spec2).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
-</div>
+<body style="background-color: rgb(250, 245, 229);">
+  <div class="page"> 
+    <div class="pure-g">
+      <div class="pure-u-1-1" style="text-align: center; font-size: 28px; line-height: 1;">
+        <h1>Malaysia's Growth</h1>
+      </div>
+    </div>
 
-<div id="container_PieChart">
-    <!-- Chart container -->
-    <div id="pie_chart"></div>
-  <script type="text/javascript">
+    <div id="container_Map">
+      <div id="choropleth_map"></div>
+      <script type="text/javascript">
+        var spec2 = "js/choropleth_map.vg.json";
+        vegaEmbed('#choropleth_map', spec2).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div>
 
-    var spec3 = "js/pieChart.json";
-    vegaEmbed('#pie_chart', spec3).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      const inflation = document.getElementById("inflation-select");
+    <div id="container_PieChart">
+      <div id="pie_chart"></div>
+      <script type="text/javascript">
+        var spec3 = "js/pieChart.json";
+        vegaEmbed('#pie_chart', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div>
 
-    }).catch(console.error);
-  </script>
-</div>
+    <!-- <div id="container_LineChart">
+      <div id="line_chart"></div>
+      <script type="text/javascript">
+        var spec3 = "js/lineChart.json";
+        vegaEmbed('#line_chart', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div> -->
 
+    <div id="container_AreaChart">
+      <div id="area_chart"></div>
+      <script type="text/javascript">
+        var spec3 = "js/area.vl.json";
+        vegaEmbed('#area_chart', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div>
+
+
+  </div>
 </body>
+
+
 </html>
