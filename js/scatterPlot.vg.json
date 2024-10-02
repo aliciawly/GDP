@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 500,
+    "background": "rgb(250, 245, 229)",
+    "title": {"text": "GDP Versus Unemployment 2023", "fontSize":20},
+    "data": {
+      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/GDP2023.csv"
+    },
+    "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "GDP per Capita",
+      "type": "quantitative",
+      "title": "GDP per Capita",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 14,
+        "titleFontSize": 14}
+    },
+    "y": {
+      "field": "Unemployment",
+      "type": "quantitative",
+      "title": "Unemployment Rate (%)",
+      "axis": {
+          "grid": false,
+          "ticks": false,
+          "labelFontSize": 14,
+          "titleFontSize": 14
+        }
+    },
+    "size": {
+      "field": "Population",
+      "type": "quantitative",
+      "title": "Population",
+      "scale": {"range": [10, 1000]}  
+    },
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "title": "State",
+      "legend": {
+            "titleFontSize": 12,  
+            "labelFontSize": 12,  
+            "symbolSize": 200     
+          }
+    },
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "GDP per Capita", "type": "quantitative", "title": "GDP per Capita","format": ".3f"},
+      {"field": "Unemployment", "type": "quantitative", "title": "Unemployment Rate"},
+      {"field": "Population", "type": "quantitative", "title": "Population"}
+    ]
+  }
+}
+  

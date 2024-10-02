@@ -3,11 +3,17 @@
   "width": 1000,
   "height": 500,
   "background": "rgb(250, 245, 229)",
-  "title": {"text": "Inflation Trend", "fontSize":20},
+  "title": {"text": "Malaysia Inflation Trends: A Yearly Overview", "fontSize":20},
   "data": {
     "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/Inflation_Rate.csv"
   },
-  "mark": "area",
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone",
+    "color": "lightblue",           
+    "line": {
+      "color": "darkblue"          
+    }},
   "encoding": {
     "x": {
       "field": "Year",
@@ -15,6 +21,7 @@
       "timeUnit": "year",
       "axis": {"format": "%Y", "title": "Year","grid": false,
         "labelAngle": 0,
+        "tickCount": "year",
         "labelFontSize": 14,
         "titleFontSize": 14}
     },

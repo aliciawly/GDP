@@ -33,7 +33,7 @@
     <div id="container_PieChart">
       <div id="pie_chart"></div>
       <script type="text/javascript">
-        var spec3 = "js/pieChart.json";
+        var spec3 = "js/pieChart.vg.json";
         vegaEmbed('#pie_chart', spec3).then(function(result) {
           // Access the Vega view instance as result.view
         }).catch(console.error);
@@ -53,8 +53,28 @@
     <div id="container_AreaChart">
       <div id="area_chart"></div>
       <script type="text/javascript">
-        var spec3 = "js/area.vl.json";
+        var spec3 = "js/area.vg.json";
         vegaEmbed('#area_chart', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div>
+
+    <div id="container_StackedAreaChart">
+      <div id="StackedArea_chart"></div>
+      <script type="text/javascript">
+        var spec3 = "js/stacked_area.vg.json";
+        vegaEmbed('#StackedArea_chart', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div>
+
+    <div id="container_ScatterPlot">
+      <div id="ScatterPlot"></div>
+      <script type="text/javascript">
+        var spec3 = "js/scatterPlot.vg.json";
+        vegaEmbed('#ScatterPlot', spec3).then(function(result) {
           // Access the Vega view instance as result.view
         }).catch(console.error);
       </script>
