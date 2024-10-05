@@ -1,0 +1,59 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 500,
+    "background": "rgb(250, 245, 229)",
+    "title": {
+      "text": "Yearly Inflation Trends by State (2010-2023)", 
+      "fontSize": 20
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/Inflation_State_cleaned.csv"
+    },
+    "mark": {
+      "type": "area",
+      "interpolate": "monotone"
+    },
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "temporal",
+        "title": "Year",
+        "axis": {
+          "grid": false,
+          "labelFontSize": 14,
+          "titleFontSize": 14,
+          "format": "%Y"    
+        }
+      },
+      "y": {
+        "field": "index",
+        "type": "quantitative",
+        "title": "Inflation Index",
+        "stack": "center",    
+        "axis": {
+          "labelFontSize": 14,
+          "titleFontSize": 14
+        }
+      },
+      "color": {
+        "field": "state",
+        "type": "nominal",
+        "title": "State",
+        "legend": {
+          "titleFontSize": 12,
+          "labelFontSize": 12,
+          "symbolSize": 200
+        },
+        "scale": {
+          "scheme": "category20b" 
+        }
+      },
+      "tooltip": [
+        {"field": "state", "type": "nominal", "title": "State"},
+        {"field": "year", "type": "temporal", "title": "Year", "format": "%Y"},
+        {"field": "index", "type": "quantitative", "title": "Inflation Index", "format": ".3f"}
+      ]
+    }
+  }
+  

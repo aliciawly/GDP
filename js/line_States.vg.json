@@ -1,0 +1,78 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 500,
+    "background": "rgb(250, 245, 229)",
+    "title": {
+      "text": "Yearly Inflation Trends by State (2010-2023)",
+      "fontSize": 20
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/Inflation_State_cleaned.csv"
+    },
+    "transform": [
+      {
+        "filter": "datum.year >= 2010 && datum.year <= 2024"
+      }
+    ],
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "ordinal",
+            "axis": {
+              "title": "Year",
+              "labelAngle": 0,
+              "grid": false,
+               "ticks": false,
+               "labelFontSize": 14,
+                "titleFontSize": 14
+            }
+          },
+          "y": {
+            "field": "index",
+            "type": "quantitative",
+           "axis": {
+              "title": "Inflation Index",
+              "labelAngle": 0,
+              "grid": false,
+               "ticks": false,
+               "labelFontSize": 14,
+                "titleFontSize": 14
+            }
+          },
+          "color": {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          "tooltip": [
+            { "field": "state", "type": "nominal", "title": "State" },
+            { "field": "year", "type": "ordinal", "title": "Year" },
+            { "field": "index", "type": "quantitative", "title": "Index","format": ".3f" }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "color": "red",
+          "strokeWidth": 3
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "ordinal"
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "index",
+            "type": "quantitative"
+          }
+        }
+      }
+    ]
+  }
+  

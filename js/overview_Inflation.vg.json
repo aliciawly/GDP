@@ -1,0 +1,90 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": "rgb(250, 245, 229)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/Inflation_Rate.csv"
+    },
+    "vconcat": [
+      {
+        "width": 1000,
+        "height": 500,
+        "title": {
+          "text": "Malaysia Inflation Trends: A Yearly Overview",
+          "fontSize": 20
+        },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "temporal",
+            "timeUnit": "year",
+            "scale": { "domain": { "param": "brush" } },   
+            "axis": {
+              "format": "%Y",
+              "title": "Year",
+              "grid": false,
+              "labelAngle": 0,
+              "tickCount": "year",
+              "labelFontSize": 14,
+              "titleFontSize": 14
+            }
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "Total",
+            "type": "quantitative",
+            "title": "Inflation Rate",
+            "axis": {
+              "grid": false,
+              "ticks": false,
+              "labelFontSize": 14,
+              "titleFontSize": 14
+            }
+          },
+          "tooltip": [
+            { "field": "Year", "type": "temporal", "timeUnit": "year", "title": "Year" },
+            { "field": "Total", "type": "quantitative", "title": "Inflation Rate" }
+          ]
+        },
+        "layer": [
+          {
+            "mark": "area"
+          },
+          {
+            "transform": [
+              { "filter": { "param": "brush" } }
+            ],
+            "mark": {
+              "type": "area",
+              "color": "goldenrod"
+            }
+          }
+        ]
+      },
+      {
+        "width": 1000,
+        "height": 60,
+        "mark": "area",
+        "params": [{
+          "name": "brush",
+          "select": { "type": "interval", "encodings": ["x"] }  
+        }],
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "temporal",
+            "timeUnit": "year",
+            "axis": { "format": "%Y", "tickCount": 10,"title": "Year","labelFontSize": 12,
+              "titleFontSize": 12 }
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "Total",
+            "type": "quantitative",
+            "axis": { "tickCount": 3, "grid": false,"title": "Inflation Rate","labelFontSize": 12,
+              "titleFontSize": 12 }
+          }
+        }
+      }
+    ]
+  }
+  

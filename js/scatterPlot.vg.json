@@ -1,13 +1,22 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
-    "height": 500,
-    "background": "rgb(250, 245, 229)",
-    "title": {"text": "GDP Versus Unemployment 2023", "fontSize":20},
-    "data": {
-      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/GDP2023.csv"
-    },
-    "mark": "point",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 500,
+  "background": "rgb(250, 245, 229)",
+  "projection": {
+    "type": "mercator",
+    "scale": 2500,
+    "center": [110, 2]
+  },
+  "title": {"text": "GDP Versus Unemployment 2023", "fontSize": 20},
+  "data": {
+    "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/GDP2023.csv"
+  },
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "opacity": 1
+  },
   "encoding": {
     "x": {
       "field": "GDP per Capita",
@@ -15,42 +24,46 @@
       "title": "GDP per Capita",
       "axis": {
         "labelAngle": 0,
+        "grid": false,
         "labelFontSize": 14,
-        "titleFontSize": 14}
+        "titleFontSize": 14
+      }
     },
     "y": {
       "field": "Unemployment",
       "type": "quantitative",
       "title": "Unemployment Rate (%)",
       "axis": {
-          "grid": false,
-          "ticks": false,
-          "labelFontSize": 14,
-          "titleFontSize": 14
-        }
+        "grid": false,
+        "ticks": false,
+        "labelFontSize": 14,
+        "titleFontSize": 14
+      }
     },
     "size": {
       "field": "Population",
       "type": "quantitative",
       "title": "Population",
-      "scale": {"range": [10, 1000]}  
+      "scale": {
+        "range": [50, 300],
+        "domain": [1000, 150000]  
+      }
     },
     "color": {
       "field": "State",
       "type": "nominal",
       "title": "State",
       "legend": {
-            "titleFontSize": 12,  
-            "labelFontSize": 12,  
-            "symbolSize": 200     
-          }
+        "titleFontSize": 12,
+        "labelFontSize": 12,
+        "symbolSize": 200
+      }
     },
     "tooltip": [
       {"field": "State", "type": "nominal", "title": "State"},
-      {"field": "GDP per Capita", "type": "quantitative", "title": "GDP per Capita","format": ".3f"},
+      {"field": "GDP per Capita", "type": "quantitative", "title": "GDP per Capita", "format": ".3f"},
       {"field": "Unemployment", "type": "quantitative", "title": "Unemployment Rate"},
-      {"field": "Population", "type": "quantitative", "title": "Population"}
+      {"field": "Population", "type": "quantitative", "title": "Population", "format": ".0f"}
     ]
   }
 }
-  

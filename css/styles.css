@@ -6,6 +6,19 @@ body {
     background-color: rgb(250, 245, 229);
     font-size: 18px;
 }
+.pure-g {
+    display: flex; /* Make the parent a flex container */
+}
+
+.pure-u-1-2 {
+    flex: 1; /* Each child takes equal space */
+    padding: 20px; /* Padding for some spacing */
+    text-align: center; /* Center the text horizontally */
+    display: flex; /* Use flexbox for centering the text */
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: center; /* Center children vertically */
+}
+
 
 .page {
     width: 80%;
@@ -14,6 +27,11 @@ body {
     padding: 50px;
     padding-top: 35px;
 }
+
+.description-left {
+    padding-right: 20px;
+}
+
 
 #container_Map {
     flex: 1;
@@ -35,19 +53,22 @@ body {
 }
 
 #container_PieChart {
-    flex: 1;
-    justify-content: center;
-    text-align: center;
+    flex: 1; /* Takes up half the width */
+    display: flex; /* Use flexbox for centering the pie chart */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px; /* Add padding */
     background-color: rgb(250, 245, 229); /* Set background to match */
+    border: 1px solid black
 }
 
 #pie_chart {
-    flex: 1;
-    align-items: center;
-    padding-bottom: 20px;
-    padding-left: 10px;
-    background-color: rgb(250, 245, 229); /* Set background to match */
+    width: 100%; /* Full width of the container */
+    max-width: 600px; /* Optional: Limit the max width */
+    height: auto; /* Maintain aspect ratio */
+    
 }
+
 
 #container_LineChart{
     flex: 1;
@@ -108,4 +129,28 @@ body {
     padding-bottom: 20px;
     padding-left: 10px;
     background-color: rgb(250, 245, 229); /* Set background to match */
+}
+
+#container_streamGraph{
+	flex: 1;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+	padding-top: 20px;
+}
+#streamGraph {
+    flex: 1;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+}
+
+@media (max-width: 768px) {
+    .pure-g {
+        flex-direction: column; /* Stack elements vertically on small screens */
+    }
+    .pure-u-1-2 {
+        width: 100%; /* Full width for each section */
+    }
 }

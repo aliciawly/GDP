@@ -30,16 +30,51 @@
       </script>
     </div>
 
-    <div id="container_PieChart">
-      <div id="pie_chart"></div>
+    <div id="container_AreaChart">
+      <div id="overview_inflation"></div>
       <script type="text/javascript">
-        var spec3 = "js/pieChart.vg.json";
-        vegaEmbed('#pie_chart', spec3).then(function(result) {
+        var spec3 = "js/overview_Inflation.vg.json";
+        vegaEmbed('#overview_inflation', spec3).then(function(result) {
           // Access the Vega view instance as result.view
         }).catch(console.error);
       </script>
     </div>
 
+    <div id="container_AreaChart">
+      <div id="states_inflation"></div>
+      <script type="text/javascript">
+        var spec3 = "js/line_States.vg.json";
+        vegaEmbed('#states_inflation', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div>
+
+    <div class="pure-g" style="display: flex;">
+      <div class="pure-u-1-2" style="flex: 1;">
+          <div class="description description-left">
+              <p>
+                Explore the main economic activities in 2024 by selecting either Q1 or Q2.
+                The pie chart highlights key sectors including
+                  <strong><span style="color: #8da0cb">Agriculture, </span></strong> <strong><span style="color: #fc8d62">Construction,</span><span style="color:#a6d854"> Import Duties</span><span style="color:#66c2a5"> Manufacturing,</span><span style="color:#e5c494"> Mining and Quarrying,</span></strong> and<strong><span style="color:#b3b3b3"> Services</span></strong>. 
+                  providing a clear overview of their contributions to the economy. 
+              </p>
+          </div>
+      </div>
+
+      <div id="container_PieChart" style="flex: 1; padding: 20px;">
+          <div id="pie_chart"></div>
+          <script type="text/javascript">
+              var spec3 = "js/pieChart.vg.json";
+              vegaEmbed('#pie_chart', spec3).then(function(result) {
+                  // Access the Vega view instance as result.view
+              }).catch(console.error);
+          </script>
+      </div>
+  </div>
+  
+
+  
     <!-- <div id="container_LineChart">
       <div id="line_chart"></div>
       <script type="text/javascript">
@@ -50,7 +85,7 @@
       </script>
     </div> -->
 
-    <div id="container_AreaChart">
+    <!-- <div id="container_AreaChart">
       <div id="area_chart"></div>
       <script type="text/javascript">
         var spec3 = "js/area.vg.json";
@@ -58,9 +93,10 @@
           // Access the Vega view instance as result.view
         }).catch(console.error);
       </script>
-    </div>
+    </div> -->
 
-    <div id="container_StackedAreaChart">
+
+    <!-- <div id="container_StackedAreaChart">
       <div id="StackedArea_chart"></div>
       <script type="text/javascript">
         var spec3 = "js/stacked_area.vg.json";
@@ -68,7 +104,18 @@
           // Access the Vega view instance as result.view
         }).catch(console.error);
       </script>
-    </div>
+    </div> -->
+
+    <!-- <div id="container_streamGraph">
+      <div id="streamGraph"></div>
+      <script type="text/javascript">
+        var spec3 = "js/streamGraph.vg.json";
+        vegaEmbed('#streamGraph', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div> -->
+
 
     <div id="container_ScatterPlot">
       <div id="ScatterPlot"></div>

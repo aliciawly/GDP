@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
+  "width": 400,
   "height": 500,
   "background": "rgb(250, 245, 229)",
   "title": {"text": "Economic Activity in 2024", "fontSize":20},
