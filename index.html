@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div id="container_Map">
+    <!-- <div id="container_Map">
       <div id="choropleth_map"></div>
       <script type="text/javascript">
         var spec2 = "js/choropleth_map.vg.json";
@@ -28,19 +28,20 @@
           // Access the Vega view instance as result.view
         }).catch(console.error);
       </script>
-    </div>
-
-    <div id="container_AreaChart">
-      <div id="overview_inflation"></div>
+    </div> -->
+    <div id="container_Map">
+      <div id="choropleth_map"></div>
       <script type="text/javascript">
-        var spec3 = "js/overview_Inflation.vg.json";
-        vegaEmbed('#overview_inflation', spec3).then(function(result) {
+        var spec2 = "js/choropleth_map_year.vg.json";
+        vegaEmbed('#choropleth_map', spec2).then(function(result) {
           // Access the Vega view instance as result.view
         }).catch(console.error);
       </script>
     </div>
 
-    <div id="container_AreaChart">
+    
+
+    <!-- <div id="container_AreaChart">
       <div id="states_inflation"></div>
       <script type="text/javascript">
         var spec3 = "js/line_States.vg.json";
@@ -48,7 +49,7 @@
           // Access the Vega view instance as result.view
         }).catch(console.error);
       </script>
-    </div>
+    </div> -->
 
     <div class="pure-g" style="display: flex;">
       <div class="pure-u-1-2" style="flex: 1;">
@@ -71,6 +72,26 @@
               }).catch(console.error);
           </script>
       </div>
+  </div>
+
+  <div id="container_AreaChart">
+    <div id="overview_inflation"></div>
+    <script type="text/javascript">
+      var spec3 = "js/overview_Inflation.vg.json";
+      vegaEmbed('#overview_inflation', spec3).then(function(result) {
+        // Access the Vega view instance as result.view
+      }).catch(console.error);
+    </script>
+  </div>
+
+  <div id="container_rangedDotPlot">
+    <div id="inflation_mainGroup"></div>
+    <script type="text/javascript">
+      var spec3 = "js/rangedDotPlot.vg.json";
+      vegaEmbed('#inflation_mainGroup', spec3).then(function(result) {
+        // Access the Vega view instance as result.view
+      }).catch(console.error);
+    </script>
   </div>
   
 

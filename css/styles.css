@@ -146,6 +146,21 @@ body {
     background-color: rgb(250, 245, 229); /* Set background to match */
 }
 
+#container_rangedDotPlot{
+	flex: 1;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+	padding-top: 20px;
+}
+#rangedDotPlot {
+    flex: 1;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+}
+
 @media (max-width: 768px) {
     .pure-g {
         flex-direction: column; /* Stack elements vertically on small screens */
