@@ -1,67 +1,83 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Inflation Rates of ASEAN Countries (2017-2022)",
-    "width": 800,
-    "height": 400,
+    "width": 700,
+    "height": 500,
+    "background": "rgb(250, 245, 229)",
     "data": {
-      "url": "path/to/asean_inflation.csv",
-      "format": {
-        "type": "csv"
-      }
+      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/aseanCountires.csv"
     },
+    "params": [
+      {
+        "name": "selectedYear",
+        "value": 2022,
+        "bind": {
+          "input": "range",
+          "min": 2017,
+          "max": 2022,
+          "step": 1,
+          "name": "Year: "
+        }
+      }
+    ],
     "transform": [
-      {"fold": ["2017", "2018", "2019", "2020", "2021", "2022"], "as": ["Year", "Inflation"]}
+      {
+        "fold": ["2017", "2018", "2019", "2020", "2021", "2022"],
+        "as": ["Year", "Inflation"]
+      },
+      {
+        "filter": "datum.Year === selectedYear + ''"  
+      }
     ],
     "layer": [
       {
-        "mark": "line",
+        "mark": {
+          "type": "bar",
+          "size": 5
+        },
         "encoding": {
-          "x": {
-            "field": "Year",
-            "type": "ordinal",
-            "title": "Year"
-          },
           "y": {
-            "field": "Inflation",
-            "type": "quantitative",
-            "title": "Inflation Rate (%)"
-          },
-          "color": {
             "field": "Country",
             "type": "nominal",
-            "legend": {
-              "title": "Country"
-            }
+            "title": "Country",
+            "axis": {"labelFontSize": 12, "titleFontSize": 14}
           },
+          "x": {
+            "field": "Inflation",
+            "type": "quantitative",
+            "title": "Inflation Rate (%)",
+            "axis": {"labelFontSize": 12, "titleFontSize": 14}
+          },
+          "color": {"field": "Country", "type": "nominal", "legend": null},
           "tooltip": [
-            {"field": "Country", "type": "nominal"},
-            {"field": "Year", "type": "ordinal"},
-            {"field": "Inflation", "type": "quantitative"},
-            {"field": "Flag_Image", "type": "nominal", "title": "Flag"}
+            {"field": "Country", "title": "Country"},
+            {"field": "Inflation", "type": "quantitative", "title": "Inflation Rate (%)"},
+            {"field": "Year", "title": "Year"}
           ]
         }
       },
       {
         "mark": {
           "type": "image",
-          "width": 20,
-          "height": 15
+          "width": 25,
+          "height": 25,
+          "align": "right",
+          "baseline": "middle",
+          "xOffset": 10
         },
         "encoding": {
-          "x": {
-            "field": "Year",
-            "type": "ordinal"
-          },
-          "y": {
-            "field": "Inflation",
-            "type": "quantitative"
-          },
-          "url": {
-            "field": "Flag_Image",
-            "type": "nominal"
-          }
+          "y": {"field": "Country", "type": "nominal"},
+          "x": {"field": "Inflation", "type": "quantitative"},
+          "url": {"field": "Flag_Image", "type": "nominal"},
+          "tooltip": [
+            {"field": "Country", "title": "Country"},
+            {"field": "Inflation", "type": "quantitative", "title": "Inflation Rate (%)", "format": ".2f"},
+            {"field": "Year", "title": "Year"}
+          ]
         }
       }
-    ]
+    ],
+    "config": {
+      "background": "#ffffff"
+    }
   }
   
