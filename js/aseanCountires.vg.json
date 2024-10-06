@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Inflation Rates of ASEAN Countries (2017-2022)",
+    "width": 800,
+    "height": 400,
+    "data": {
+      "url": "path/to/asean_inflation.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "transform": [
+      {"fold": ["2017", "2018", "2019", "2020", "2021", "2022"], "as": ["Year", "Inflation"]}
+    ],
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          "y": {
+            "field": "Inflation",
+            "type": "quantitative",
+            "title": "Inflation Rate (%)"
+          },
+          "color": {
+            "field": "Country",
+            "type": "nominal",
+            "legend": {
+              "title": "Country"
+            }
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Year", "type": "ordinal"},
+            {"field": "Inflation", "type": "quantitative"},
+            {"field": "Flag_Image", "type": "nominal", "title": "Flag"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "image",
+          "width": 20,
+          "height": 15
+        },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal"
+          },
+          "y": {
+            "field": "Inflation",
+            "type": "quantitative"
+          },
+          "url": {
+            "field": "Flag_Image",
+            "type": "nominal"
+          }
+        }
+      }
+    ]
+  }
+  
