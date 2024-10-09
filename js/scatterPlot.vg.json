@@ -11,6 +11,31 @@
   "data": {
     "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/GDP2023.csv"
   },
+  "params": [
+    {
+      "name": "States",
+      "value": "ALL",
+      "bind": {
+        "input": "select",
+        "name": "Select States: ",
+        "options": [
+          "ALL", "Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan",
+          "Pahang", "Pulau Pinang", "Perak", "Perlis", "Selangor", "Terengganu",
+          "Sabah", "Sarawak", "Kuala Lumpur", "Labuan"
+        ],
+        "labels": [
+          "ALL", "Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan",
+          "Pahang", "Pulau Pinang", "Perak", "Perlis", "Selangor", "Terengganu",
+          "Sabah", "Sarawak", "Kuala Lumpur", "Labuan"
+        ]
+      }
+    },
+    {
+      "name": "grid",
+      "select": "interval",
+      "bind": "scales"
+    }
+  ],
   "mark": {
     "type": "point",
     "filled": true,
@@ -45,13 +70,25 @@
       "title": "Population",
       "scale": {
         "range": [50, 300],
-        "domain": [1000, 150000]  
+        "domain": [1000, 150000]
       }
     },
     "color": {
       "field": "State",
       "type": "nominal",
       "title": "State",
+      "scale": {
+        "domain": [
+          "Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan",
+          "Pahang", "Pulau Pinang", "Perak", "Perlis", "Selangor", "Terengganu",
+          "Sabah", "Sarawak", "Kuala Lumpur", "Labuan"
+        ],
+        "range": [
+          "#4e79a7", "#f28e2c", "#76b7b2", "#59a14f", "#edc949",
+          "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab", "#e15759",
+          "#b07aa1", "#9467bd", "#8c564b", "#e377c2", "#17becf"
+        ]
+      },
       "legend": {
         "titleFontSize": 12,
         "labelFontSize": 12,
@@ -64,5 +101,10 @@
       {"field": "Unemployment", "type": "quantitative", "title": "Unemployment Rate"},
       {"field": "Population", "type": "quantitative", "title": "Population", "format": ".0f"}
     ]
-  }
+  },
+  "transform": [
+    {
+      "filter": "States === 'ALL' || datum.State === States"
+    }
+  ]
 }

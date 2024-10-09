@@ -43,7 +43,10 @@
         },
         "layer": [
           {
-            "mark": "area"
+            "mark": {
+              "type": "area",
+              "color": "rgb(200, 200, 200)"  
+            }
           },
           {
             "transform": [
@@ -51,7 +54,7 @@
             ],
             "mark": {
               "type": "area",
-              "color": "goldenrod"
+              "color": "rgb(31, 78, 121)"
             }
           }
         ]
