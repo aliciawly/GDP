@@ -14,26 +14,28 @@
 
 <body style="background-color: rgb(250, 245, 229);">
   <div class="page"> 
+
+    <!-- Section: Malaysia's Growth -->
     <div class="pure-g">
         <div class="pure-u-1-1" style="text-align: center; font-size: 28px; border: 1px solid black;background-color: aliceblue;">
             <h1>Malaysia's Growth</h1>
-            <p style="text-align: center; font-size: 25px; line-height: 1;">Malaysia's economy is diverse and growing, heavily reliant on <strong>manufacturing</strong> and <strong>services</strong>. </p>
+            <p style="text-align: center; font-size: 25px; line-height: 1;">Malaysia's economy is diverse and growing, heavily reliant on <strong>manufacturing</strong> and <strong>services</strong>.</p>
         </div>
-        
     </div>
 
+    <!-- Section: GDP by States in Malaysia -->
     <div class="pure-g">
-      <div class="pure-u-1-1" style="text-align: center;  padding: 5px;">
+      <div class="pure-u-1-1" style="text-align: center; padding: 5px;">
           <p>
-              <span style="font-weight: bold;font-size: 24px;">Gross Domestic Product</span><span style="font-size: 24px;"> by States in Malaysia (2015-2023)</span>
+              <span style="font-weight: bold; font-size: 24px;">Gross Domestic Product</span><span style="font-size: 24px;"> by States in Malaysia (2015-2023)</span>
               <br> <span style="font-size: 18px;">GDP reflects the total value of goods and services produced.</span>
           </p>
-          <hr>
-          <p><span style="color: #174b87;font-weight: bold;font-size: 21px;">Kuala Lumpur</span> <span style="font-size: 23px;">is Malaysia's economic hub and </span><span style="color: #174b87;font-weight: bold;font-size: 23px;">Selangor</span> <span style="font-size: 23px;">ranking high in GDP.</span></p>
+          <hr style="width: 80%; margin: 10px auto;">
+          <p><span style="color: #174b87; font-weight: bold; font-size: 21px;">Kuala Lumpur</span> <span style="font-size: 23px;">is Malaysia's economic hub and </span><span style="color: #174b87; font-weight: bold; font-size: 23px;">Selangor</span> <span style="font-size: 23px;">ranking high in GDP.</span></p>
       </div>
-  </div>
+    </div>
 
-    <!-- choropleth map -->
+    <!-- Choropleth Map -->
     <div id="container_Map">
       <div id="choropleth_map"></div>
       <script type="text/javascript">
@@ -44,118 +46,103 @@
       </script>
     </div>
 
-    <!-- Pie chart description -->
+    <!-- Section: Economic Sectors Pie Chart -->
     <div class="pure-g" style="display: flex;">
       <div class="pure-u-1-2" style="flex: 1;">
-          <div class="description description-left">
-              <p>
-                <p>
-                Explore the main economic activities in 2024 by selecting either Q1 or Q2.
-                The pie chart highlights key sectors including
-                  <strong><span style="color: #8da0cb">Agriculture, </span></strong> <strong><span style="color: #fc8d62">Construction,</span><span style="color:#a6d854"> Import Duties, </span><span style="color:#66c2a5"> Manufacturing,</span><span style="color:#e5c494"> Mining and Quarrying,</span></strong> and<strong><span style="color:#b3b3b3"> Services</span></strong>. 
-                  providing a clear overview of their contributions to the economy. 
-              </p>
-          </div>
+        <div class="description description-left">
+          <p>Explore the main economic activities in 2024 by selecting either Q1 or Q2. The pie chart highlights key sectors including <strong><span style="color: #8da0cb">Agriculture, </span></strong> <strong><span style="color: #fc8d62">Construction, </span><span style="color: #a6d854">Import Duties, </span><span style="color: #66c2a5">Manufacturing,</span> <span style="color: #e5c494">Mining and Quarrying,</span></strong> and <strong><span style="color:#b3b3b3">Services</span></strong>, providing a clear overview of their contributions to the economy.</p>
+        </div>
       </div>
-    
-      <!-- Pie chart -->
+
+      <!-- Pie Chart -->
       <div id="container_PieChart" style="flex: 1;">
-          <div id="pie_chart"></div>
-          <script type="text/javascript">
-              var spec3 = "js/pieChart.vg.json";
-              vegaEmbed('#pie_chart', spec3).then(function(result) {
-                  // Access the Vega view instance as result.view
-              }).catch(console.error);
-          </script>
-      </div>
-  </div>
-
-
-<!-- Inflation Description -->
-<div class="pure-g">
-  <div class="pure-u-1-1" style="text-align: center; padding-top: 10px;">
-    <p style="font-size: 24px; line-height: 1;">
-      <strong style="color: black; font-weight: bold;">Malaysia's inflation rate has fluctuated over the years.</strong>
-      <br>
-      <span style="font-size: 18px;">Inflation reflects the rate at which prices for goods and services rise.</span>
-    </p>
-    <hr>
-    <p style="font-size: 20px; line-height: 1; text-align: center;">
-      Peaks occurred around <span style="color: #174b87; font-weight: bold;">2017</span> and <span style="color: #174b87; font-weight: bold;">2022</span>.
-      <br>
-      Significant dip into <span style="color: #174b87; font-weight: bold;">negative inflation</span> was observed in <span style="color: #174b87; font-weight: bold;">2020</span> during COVID-19 pandemic.
-    </p>
+        <div id="pie_chart"></div>
+        <script type="text/javascript">
+          var spec3 = "js/pieChart.vg.json";
+          vegaEmbed('#pie_chart', spec3).then(function(result) {
+            // Access the Vega view instance as result.view
+          }).catch(console.error);
+        </script>
       </div>
     </div>
-    <div style="font-size: 15px; color: #666; text-align: center; margin-top: 10px;">
-      Use the slider below to zoom in on specific years.
-      The main chart will update accordingly.
-    </div>
-  </div>
-</div>
 
-
-<!-- Inflation (Area chart) -->
-  <div id="container_AreaChart">
-    <div id="overview_inflation"></div>
-    <script type="text/javascript">
-      var spec3 = "js/overview_Inflation.vg.json";
-      vegaEmbed('#overview_inflation', spec3).then(function(result) {
-        // Access the Vega view instance as result.view
-      }).catch(console.error);
-    </script>
-  </div>
-
-<!-- Inflation By main Group Description -->
-<div class="pure-g">
-  <div class="pure-u-1-1" style="text-align: center; padding-top: 10px; ">
-    <p style="text-align: center; font-size: 22px; line-height: 1;">
-      <strong style = "color: black; font-weight: bold;">Inflation Rates</strong> across various economic sectors in 2022 and 2023
-      <hr>
-    </p>
-    <p  style="text-align: center; font-size: 20px; line-height: 1;">
-      The <strong style = "color: #174b87;">highest inflation rates (5-6%)</strong> were observed in 
-      <strong style = "color: #174b87;">Communication</strong>, <strong style = "color: #174b87;">Restaurants & Hotels</strong> and <strong style = "color: #174b87;">Food & Beverages</strong>.
-    <br>
-    Household Equipment was the only category showing <strong style = "color: #174b87;">negative inflation</strong>.</p>
-  </div>
-</div>
-
-<!-- Inflation By main Group (Ranged Dot chart) -->
-  <div id="container_rangedDotPlot">
-    <div id="inflation_mainGroup"></div>
-    <script type="text/javascript">
-      var spec3 = "js/rangedDotPlot.vg.json";
-      vegaEmbed('#inflation_mainGroup', spec3).then(function(result) {
-        // Access the Vega view instance as result.view
-      }).catch(console.error);
-    </script>
-  </div>
-  
-
-    <!-- GDP VS Unemployment Description -->
-  <div class="pure-g">
-    <div class="pure-u-1-1" style="text-align: center; padding-top: 10px; ">
-      <p style="text-align: center; font-size: 22px; line-height: 1;">
-        <span style = "color: black; font-weight: bold;">GDP per capita and unemployment rates</span> across different Malaysian states in 2023.
-        <br>
-        <span style="font-size: 18px;">The size of each bubble represents the population of each state.</span>
-        <hr>
-      </p>
-      <p  style="text-align: center; font-size: 20px; line-height: 1;">
-      <strong style = "color: #174b87;">Kuala Lumpur</strong> and <strong style = "color: #174b87;">Selangor</strong> show higher GDP per capita and maintain moderate <strong style = "color: #174b87;">unemployment rates (2.5-3%)</strong>
-      <br>
-      <strong style = "color: #174b87;">Sabah</strong> stands out with a high unemployment rate (7.5%) and lower GDP per capita.
-      </p>
-      <div style="font-size: 15px; color: #666; text-align: center; margin-top: 10px;">
-        You can zoom in on specific areas by clicking and dragging to select a region.  
-        <br>
-        To reset the zoom, simply double-click anywhere on the chart.
+    <!-- Section: Inflation Overview -->
+    <div class="pure-g">
+      <div class="pure-u-1-1" style="text-align: center; padding-top: 10px;">
+        <p style="font-size: 24px; line-height: 1;">
+          <strong style="color: black; font-weight: bold;">Malaysia's inflation rate has fluctuated over the years.</strong>
+          <br>
+          <span style="font-size: 18px;">Inflation reflects the rate at which prices for goods and services rise.</span>
+        </p>
+        <hr style="width: 80%; margin: 10px auto;">
+        <p style="font-size: 20px; line-height: 1;">
+          Peaks occurred around <span style="color: #174b87; font-weight: bold;">2017</span> and <span style="color: #174b87; font-weight: bold;">2022</span>.
+          <br>
+          Significant dip into <span style="color: #174b87; font-weight: bold;">negative inflation</span> was observed in <span style="color: #174b87; font-weight: bold;">2020</span> during the COVID-19 pandemic.
+        </p>
       </div>
     </div>
-  </div>
+    
+    <!-- Inflation Area Chart -->
+    <div id="container_AreaChart">
+      <div id="overview_inflation"></div>
+      <script type="text/javascript">
+        var spec3 = "js/overview_Inflation.vg.json";
+        vegaEmbed('#overview_inflation', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div>
 
-  <!-- GDP VS Unemployment Scatter Plot -->  
+    <!-- Section: Inflation by Main Group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1" style="text-align: center; padding-top: 10px;">
+        <p style="font-size: 22px; line-height: 1;">
+          <strong style="color: black; font-weight: bold;">Inflation Rates</strong> across various economic sectors in 2022 and 2023
+        </p>
+        <hr style="width: 80%; margin: 10px auto;">
+        <p style="font-size: 20px; line-height: 1;">
+          The <strong style="color: #174b87;">highest inflation rates (5-6%)</strong> were observed in <strong style="color: #174b87;">Communication</strong>, <strong style="color: #174b87;">Restaurants & Hotels</strong>, and <strong style="color: #174b87;">Food & Beverages</strong>.
+          <br>
+          Household Equipment was the only category showing <strong style="color: #174b87;">negative inflation</strong>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Inflation Ranged Dot Plot -->
+    <div id="container_rangedDotPlot">
+      <div id="inflation_mainGroup"></div>
+      <script type="text/javascript">
+        var spec3 = "js/rangedDotPlot.vg.json";
+        vegaEmbed('#inflation_mainGroup', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div>
+
+    <!-- Section: GDP vs Unemployment -->
+    <div class="pure-g">
+      <div class="pure-u-1-1" style="text-align: center; padding-top: 10px;">
+        <p style="font-size: 22px; line-height: 1;">
+          <span style="color: black; font-weight: bold;">GDP per capita and unemployment rates</span> across different Malaysian states in 2023.
+          <br>
+          <span style="font-size: 18px;">The size of each bubble represents the population of each state.</span>
+        </p>
+        <hr style="width: 80%; margin: 10px auto;">
+        <p style="font-size: 20px; line-height: 1;">
+          <strong style="color: #174b87;">Kuala Lumpur</strong> and <strong style="color: #174b87;">Selangor</strong> show higher GDP per capita and maintain moderate <strong style="color: #174b87;">unemployment rates (2.5-3%)</strong>.
+          <br>
+          <strong style="color: #174b87;">Sabah</strong> stands out with a high unemployment rate (7.5%) and lower GDP per capita.
+        </p>
+        <div style="font-size: 15px; color: #666; text-align: center; margin-top: 10px;">
+          You can zoom in on specific areas by clicking and dragging to select a region.
+          <br>
+          To reset the zoom, simply double-click anywhere on the chart.
+        </div>
+      </div>
+    </div>
+
+    <!-- GDP vs Unemployment Scatter Plot -->
     <div id="container_ScatterPlot">
       <div id="ScatterPlot"></div>
       <script type="text/javascript">
@@ -166,23 +153,22 @@
       </script>
     </div>
 
-     <!-- Asean Countries Inflation Description -->
-  <div class="pure-g">
-    <div class="pure-u-1-1" style="text-align: center; padding-top: 10px; ">
-      <p style="text-align: center; font-size: 22px; line-height: 1;">
-        <span style = "color: black; font-weight: bold;">Inflation rates across ASEAN countries</span>
-        <hr>
-      </p>
-      <p  style="text-align: center; font-size: 20px; line-height: 1;">
-        In <strong style = "color: black; font-weight: bold;">2022</strong>,
-      <strong style = "color: #174b87;">Laos PDR</strong> and <strong style = "color: #174b87;">Myanmar</strong> experienced the <strong style = "color: #174b87;">highest inflation rates (35-40%)</strong>
-      <br>
-      In <strong style = "color: black; font-weight: bold;">2017</strong>,
-      <strong style = "color: #174b87;">Brunei</strong>  experienced the <strong style = "color: #174b87;">negative inflation</strong>
-      </p>
+    <!-- Section: ASEAN Countries Inflation -->
+    <div class="pure-g">
+      <div class="pure-u-1-1" style="text-align: center; padding-top: 10px;">
+        <p style="font-size: 22px; line-height: 1;">
+          <span style="color: black; font-weight: bold;">Inflation rates across ASEAN countries</span>
+        </p>
+        <hr style="width: 80%; margin: 10px auto;">
+        <p style="font-size: 20px; line-height: 1;">
+          In <strong style="color: black; font-weight: bold;">2022</strong>, <strong style="color: #174b87;">Laos PDR</strong> and <strong style="color: #174b87;">Myanmar</strong> experienced the <strong style="color: #174b87;">highest inflation rates (35-40%)</strong>.
+          <br>
+          In <strong style="color: black; font-weight: bold;">2017</strong>, <strong style="color: #174b87;">Brunei</strong> experienced <strong style="color: #174b87;">negative inflation</strong>.
+        </p>
+      </div>
     </div>
-  </div>
 
+    <!-- ASEAN Countries Inflation Line Chart -->
     <div id="container_asianCountries">
       <div id="asianCountries"></div>
       <script type="text/javascript">
@@ -192,7 +178,6 @@
         }).catch(console.error);
       </script>
     </div>
-
 
   </div>
 </body>
