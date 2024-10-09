@@ -1,88 +1,151 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
-    "height": 500,
-    "background": "rgb(250, 245, 229)",
-    "data": {
-      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/Inflation_mainGroup.csv"
-    },
-    "transform": [
-      {
-        "filter": {
-          "field": "Year",
-          "oneOf": [2022, 2023]
-        }
-      },
-      {
-        "fold": [
-          "Food & Beverages", "Alcoholic & Tobacco", "Clothing","Housing","Water",
-          "Electricity", "Gas & Fuels","Household Equipment",
-          "Health", "Transport", "Communication", "Recreation Services",
-          "Education", "Restaurants & Hotels", "Goods & Services"
-        ], 
-        "as": ["category", "value"]
-      }
-    ],
-    "encoding": {
-      "y": {
-        "field": "category",
-        "type": "nominal",
-        "axis": {
-          "title": null,
-          "labelFontSize": 12,
-          "titleFontSize": 12
-        }
-      },
-      "x": {
-        "field": "value",
-        "type": "quantitative",
-        "axis": {
-          "title": null,
-          "labelFontSize": 12,
-          "titleFontSize": 12
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 500,
+  "background": "rgb(250, 245, 229)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/Inflation_mainGroup.csv"
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "Year",
+        "oneOf": [2022, 2023]
       }
     },
-    "layer": [
-      {
-        "mark": "line",
-        "encoding": {
-          "detail": {
-            "field": "category",
-            "type": "nominal"
-          },
-          "color": {"value": "#db646f"}
-        }
-      },
-      {
-        "mark": {
-          "type": "point",
-          "filled": true
+    {
+      "fold": [
+        "Food & Beverages", "Alcoholic & Tobacco", "Clothing", "Housing", "Water",
+        "Electricity", "Gas & Fuels", "Household Equipment",
+        "Health", "Transport", "Communication", "Recreation Services",
+        "Education", "Restaurants & Hotels", "Goods & Services"
+      ],
+      "as": ["category", "value"]
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "category",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelFontSize": 12,
+        "titleFontSize": 12
+      }
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": null,
+        "labelFontSize": 12,
+        "titleFontSize": 12
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "detail": {
+          "field": "category",
+          "type": "nominal"
         },
-        "encoding": {
-          "color": {
-            "field": "Year",
-            "type": "ordinal",
-            "scale": {
-              "domain": [2022, 2023],
-              "range": ["#e6959c", "#911a24"]
-            },
-            "legend": {
-              "title": "Year",
-              "titleFontSize": 12,
-              "labelFontSize": 12,
-              "symbolSize": 200
-            }
+        "color": {"value": "#db646f"}
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
+      },
+      "encoding": {
+        "color": {
+          "field": "Year",
+          "type": "ordinal",
+          "scale": {
+            "domain": [2022, 2023],
+            "range": ["#e6959c", "#911a24"]
           },
-          "size": {"value": 100},
-          "opacity": {"value": 1},
-          "tooltip": [
-            {"field": "Year", "type": "ordinal", "title": "Year"},
-            {"field": "category", "type": "nominal", "title": "Category"},
-            {"field": "value", "type": "quantitative", "title": "Percentage"}
-          ]
+          "legend": {
+            "title": "Year",
+            "titleFontSize": 12,
+            "labelFontSize": 12,
+            "symbolSize": 200
+          }
+        },
+        "size": {"value": 100},
+        "opacity": {"value": 1},
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "category", "type": "nominal", "title": "Category"},
+          {"field": "value", "type": "quantitative", "title": "Percentage"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": -1,
+        "dy": -10,
+        "fontSize": 10,
+        "color": "black",
+        "fontWeight": "bold" 
+      },
+      "encoding": {
+        "text": {
+          "condition": {
+            "test": {
+              "field": "category",
+              "equal": "Household Equipment"
+            },
+            "value": "Decreased from 0% to -3% due to lower demand for household items"
+          },
+          "value": ""
+        },
+        "x": {
+          "aggregate": "mean",
+          "field": "value",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "category",
+          "type": "nominal"
         }
       }
-    ]
-  }
-  
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 5,
+        "dy": -12,
+        "fontSize": 10,
+        "color": "black",
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "condition": {
+            "test": {
+              "field": "category",
+              "equal": "Gas & Fuels"
+            },
+            "value": "Dropped from 4.7% to 1.1% due to rising EV adoption reducing fuel demand while supply remains stable"
+          },
+          "value": ""
+        },
+        "x": {
+          "aggregate": "mean",
+          "field": "value",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "category",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

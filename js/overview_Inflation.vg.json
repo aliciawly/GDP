@@ -8,10 +8,6 @@
       {
         "width": 1000,
         "height": 500,
-        "title": {
-          "text": "Malaysia Inflation Trends: A Yearly Overview",
-          "fontSize": 20
-        },
         "encoding": {
           "x": {
             "field": "Year",

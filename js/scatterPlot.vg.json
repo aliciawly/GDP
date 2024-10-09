@@ -8,7 +8,6 @@
     "scale": 2500,
     "center": [110, 2]
   },
-  "title": {"text": "GDP Versus Unemployment 2023", "fontSize": 20},
   "data": {
     "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/GDP2023.csv"
   },

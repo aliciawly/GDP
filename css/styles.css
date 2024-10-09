@@ -4,10 +4,9 @@
 
 body {
     background-color: rgb(250, 245, 229);
-    font-size: 18px;
 }
 .pure-g {
-    display: flex; /* Make the parent a flex container */
+    margin-bottom: 25px;
 }
 
 .pure-u-1-2 {
@@ -21,7 +20,7 @@ body {
 
 
 .page {
-    width: 80%;
+    width: 1000px;
     background-color: rgb(250, 245, 229);
     margin: auto;
     padding: 50px;
@@ -30,13 +29,15 @@ body {
 
 .description-left {
     padding-right: 20px;
+    font-size: 21px;
 }
 
 
 #container_Map {
-    flex: 1;
+    display: flex;
     justify-content: center;
-    padding-bottom: 10px;
+    align-items: center;
+    padding-bottom: 30px;
     text-align: center;
     width: 100%;
     background-color: rgb(250, 245, 229); /* Set background to match */
@@ -44,11 +45,8 @@ body {
 
 #choropleth_map {
     flex: 1;
-    align-items: center;
     padding-left: 20px;
     padding-top: 20px;
-    justify-content: center;
-    text-align: center;
     background-color: rgb(250, 245, 229); /* Set background to match */
 }
 
@@ -69,15 +67,6 @@ body {
     
 }
 
-
-#container_LineChart{
-    flex: 1;
-    justify-content: center;
-    text-align: center;
-    background-color: rgb(250, 245, 229); /* Set background to match */
-	padding-top: 20px;
-}
-
 #line_chart {
     flex: 1;
     align-items: center;
@@ -86,11 +75,13 @@ body {
     background-color: rgb(250, 245, 229); /* Set background to match */
 }
 #container_AreaChart{
-    flex: 1;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
     text-align: center;
-    background-color: rgb(250, 245, 229); /* Set background to match */
-	padding-top: 20px;
+    width: 100%;
+    background-color: rgb(250, 245, 229);
 }
 
 #area_chart {
@@ -102,11 +93,13 @@ body {
 }
 
 #container_StackedAreaChart{
-	flex: 1;
+	display: flex;
     justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
     text-align: center;
-    background-color: rgb(250, 245, 229); /* Set background to match */
-	padding-top: 20px;
+    width: 100%;
+    background-color: rgb(250, 245, 229);
 }
 #StackedArea_chart {
     flex: 1;
@@ -117,17 +110,18 @@ body {
 }
 
 #container_ScatterPlot{
-	flex: 1;
+	display: flex;
     justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
     text-align: center;
-    background-color: rgb(250, 245, 229); /* Set background to match */
-	padding-top: 20px;
+    width: 100%;
+    background-color: rgb(250, 245, 229);
 }
 #ScatterPlot {
     flex: 1;
-    align-items: center;
-    padding-bottom: 20px;
-    padding-left: 10px;
+    padding-left: 20px;
+    padding-top: 20px;
     background-color: rgb(250, 245, 229); /* Set background to match */
 }
 
@@ -147,17 +141,35 @@ body {
 }
 
 #container_rangedDotPlot{
-	flex: 1;
+	display: flex;
     justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
     text-align: center;
-    background-color: rgb(250, 245, 229); /* Set background to match */
-	padding-top: 20px;
+    width: 100%;
+    background-color: rgb(250, 245, 229);
 }
 #rangedDotPlot {
     flex: 1;
     align-items: center;
     padding-bottom: 20px;
     padding-left: 10px;
+    background-color: rgb(250, 245, 229); /* Set background to match */
+}
+#container_asianCountries{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    text-align: center;
+    width: 100%;
+    background-color: rgb(250, 245, 229);
+}
+#asianCountries {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
     background-color: rgb(250, 245, 229); /* Set background to match */
 }
 

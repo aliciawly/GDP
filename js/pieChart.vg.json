@@ -3,7 +3,6 @@
   "width": 400,
   "height": 500,
   "background": "rgb(250, 245, 229)",
-  "title": {"text": "Economic Activity in 2024", "fontSize":20},
   "data": {
     "url": "https://raw.githubusercontent.com/aliciawly/map/refs/heads/main/data/EconomicActivity.csv"
   },

@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
+    "width": 1000,
     "height": 500,
     "background": "rgb(250, 245, 229)",
     "data": {
@@ -38,7 +38,7 @@
           "y": {
             "field": "Country",
             "type": "nominal",
-            "title": "Country",
+            "title": null,
             "axis": {"labelFontSize": 12, "titleFontSize": 14}
           },
           "x": {

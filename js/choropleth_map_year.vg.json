@@ -1,9 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "GDP by States in Malaysia (2015-2023)",
-    "fontSize": 20
-  },
+ 
   "background": "rgb(250, 245, 229)",
   "width": 1000,
   "height": 500,
