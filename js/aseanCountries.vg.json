@@ -1,83 +1,95 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
-    "height": 500,
-    "background": "rgb(250, 245, 229)",
-    "data": {
-      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/aseanCountires.csv"
-    },
-    "params": [
-      {
-        "name": "selectedYear",
-        "value": 2022,
-        "bind": {
-          "input": "range",
-          "min": 2017,
-          "max": 2022,
-          "step": 1,
-          "name": "Year: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1300,
+  "height": 500,
+  "background": "rgb(250, 245, 229)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/aliciawly/MalaysiaEconomicGrowth/refs/heads/main/data/aseanCountires.csv"
+  },
+  "params": [
+    {
+      "name": "selectedYear",
+      "value": 2022,
+      "bind": {
+        "input": "range",
+        "min": 2017,
+        "max": 2022,
+        "step": 1,
+        "name": "Year: "
       }
-    ],
-    "transform": [
-      {
-        "fold": ["2017", "2018", "2019", "2020", "2021", "2022"],
-        "as": ["Year", "Inflation"]
-      },
-      {
-        "filter": "datum.Year === selectedYear + ''"  
-      }
-    ],
-    "layer": [
-      {
-        "mark": {
-          "type": "bar",
-          "size": 5
-        },
-        "encoding": {
-          "y": {
-            "field": "Country",
-            "type": "nominal",
-            "title": null,
-            "axis": {"labelFontSize": 12, "titleFontSize": 14}
-          },
-          "x": {
-            "field": "Inflation",
-            "type": "quantitative",
-            "title": "Inflation Rate (%)",
-            "axis": {"labelFontSize": 12, "titleFontSize": 14}
-          },
-          "color": {"field": "Country", "type": "nominal", "legend": null},
-          "tooltip": [
-            {"field": "Country", "title": "Country"},
-            {"field": "Inflation", "type": "quantitative", "title": "Inflation Rate (%)"},
-            {"field": "Year", "title": "Year"}
-          ]
-        }
-      },
-      {
-        "mark": {
-          "type": "image",
-          "width": 25,
-          "height": 25,
-          "align": "right",
-          "baseline": "middle",
-          "xOffset": 10
-        },
-        "encoding": {
-          "y": {"field": "Country", "type": "nominal"},
-          "x": {"field": "Inflation", "type": "quantitative"},
-          "url": {"field": "Flag_Image", "type": "nominal"},
-          "tooltip": [
-            {"field": "Country", "title": "Country"},
-            {"field": "Inflation", "type": "quantitative", "title": "Inflation Rate (%)", "format": ".2f"},
-            {"field": "Year", "title": "Year"}
-          ]
-        }
-      }
-    ],
-    "config": {
-      "background": "#ffffff"
     }
-  }
-  
+  ],
+  "transform": [
+    {
+      "fold": ["2017", "2018", "2019", "2020", "2021", "2022"],
+      "as": ["Year", "Inflation"]
+    },
+    {
+      "filter": "datum.Year === selectedYear + ''"  
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "size": 5
+      },
+      "encoding": {
+        "y": {
+          "field": "Country",
+          "type": "nominal",
+          "title": null,
+          "axis": {"labelFontSize": 12, "titleFontSize": 14}
+        },
+        "x": {
+          "field": "Inflation",
+          "type": "quantitative",
+          "title": "Inflation Rate (%)",
+          "axis": {"labelFontSize": 12, "titleFontSize": 14}
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Brunei Darussalam", "Cambodia", "Indonesia", "Lao PDR", "Malaysia", "Myanmar", "Philippines", "Singapore", "Thailand", "VietNam"],
+            "range": ["#4e79a7", "#80430e", "#fc7703", "#697bd6", "#bab0ab", "#ba7b38", "#b07aa1", "#ff9da7", "#9c755f", "#522d8a"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "Country", "title": "Country"},
+          {"field": "Inflation", "type": "quantitative", "title": "Inflation Rate (%)", "format": ".2f"},
+          {"field": "Year", "title": "Year"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "image",
+        "width": 25,
+        "height": 25,
+        "align": "right",
+        "baseline": "middle",
+        "xOffset": 10
+      },
+      "encoding": {
+        "y": {"field": "Country", "type": "nominal"},
+        "x": {"field": "Inflation", "type": "quantitative"},
+        "url": {"field": "Flag_Image", "type": "nominal"},
+        "tooltip": [
+          {"field": "Country", "title": "Country"},
+          {"field": "Inflation", "type": "quantitative", "title": "Inflation Rate (%)", "format": ".2f"},
+          {"field": "Year", "title": "Year"}
+        ]
+      }
+    }
+  ],
+ "config": {
+  "background": "#ffffff",
+  "font": "Source Sans Pro, sans-serif",
+  "text": {"font": "Source Sans Pro, sans-serif"},
+  "title": {"font": "Source Sans Pro, sans-serif"},
+  "axis": {"labelFont": "Source Sans Pro, sans-serif", "titleFont": "Source Sans Pro, sans-serif"},
+  "legend": {"labelFont": "Source Sans Pro, sans-serif", "titleFont": "Source Sans Pro, sans-serif"}
+}
+}

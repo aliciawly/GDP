@@ -1,6 +1,6 @@
-.body {
+/* .body {
     font-family: 'Source Sans Pro', sans-serif;
-}
+} */
 
 body {
     background-color: rgb(250, 245, 229);
@@ -20,7 +20,7 @@ body {
 
 
 .page {
-    width: 1000px;
+    width: 1300px;
     background-color: rgb(250, 245, 229);
     margin: auto;
     padding: 50px;
@@ -30,6 +30,7 @@ body {
 .description-left {
     padding-right: 20px;
     font-size: 21px;
+    align-items: center;
 }
 
 
@@ -37,7 +38,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     text-align: center;
     width: 100%;
     background-color: rgb(250, 245, 229); /* Set background to match */
@@ -52,12 +53,12 @@ body {
 
 #container_PieChart {
     flex: 1; /* Takes up half the width */
-    display: flex; /* Use flexbox for centering the pie chart */
+    display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    padding: 20px; /* Add padding */
-    background-color: rgb(250, 245, 229); /* Set background to match */
-    border: 1px solid black
+    padding: 10px; /* Add padding */
+    padding-bottom: 40px;
+    background-color: rgb(250, 245, 229)v; /* Set background to match */
 }
 
 #pie_chart {
@@ -78,7 +79,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
     text-align: center;
     width: 100%;
     background-color: rgb(250, 245, 229);
@@ -113,7 +114,7 @@ body {
 	display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     text-align: center;
     width: 100%;
     background-color: rgb(250, 245, 229);
@@ -144,7 +145,7 @@ body {
 	display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     text-align: center;
     width: 100%;
     background-color: rgb(250, 245, 229);

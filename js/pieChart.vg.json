@@ -25,6 +25,10 @@
     {
       "calculate": "datum.percentage + '%'", 
       "as": "percentageWithSymbol"
+    },
+    {
+      "calculate": "'increased from ' + datum['2024Q1'] + '% to ' + datum['2024Q2'] + '%'",
+      "as": "changeText"
     }
   ],
   "encoding": {
@@ -50,11 +54,13 @@
         ]
       },
       "legend": {
-        "titleFontSize": 12,  
-        "labelFontSize": 12,  
+        "titleFont": "Source Sans Pro, sans-serif",
+        "titleFontSize": 12,
+        "labelFont": "Source Sans Pro, sans-serif",
+        "labelFontSize": 12,
         "symbolSize": 200     
       }
-    }, 
+    },
     "tooltip": [
       {"field": "Kind of Economic Activity", "type": "nominal", "title": "Activity Type"},
       {"field": "percentageWithSymbol", "type": "nominal", "title": "Percentage"}
@@ -76,80 +82,55 @@
         "type": "text",
         "align": "center",
         "outerRadius": 205,
-        "fontSize": 14
+        "fontSize": 14,
+        "font": "Source Sans Pro, sans-serif"
       },
       "encoding": {
-        "text": {
-          "field": "percentageWithSymbol",
-          "type": "nominal"
-        }
+        "text": {"field": "percentageWithSymbol", "type": "nominal"}
       }
     },
     {
+      "transform": [{"filter": "datum['Kind of Economic Activity'] == 'Construction'"}],
       "mark": {
         "type": "text",
         "align": "left",
-        "x": 400,
-        "y": 400,
-        "fill": "#fc8d62",
+        "x": 10,
+        "y": 450,
         "fontSize": 15,
-        "text": "Construction"
+        "font": "Source Sans Pro, sans-serif"
+      },
+      "encoding": {
+        "text": {"field": "Kind of Economic Activity", "type": "nominal"},
+        "color": {"field": "Kind of Economic Activity", "type": "nominal"}
       }
     },
     {
+      "transform": [{"filter": "datum['Kind of Economic Activity'] == 'Construction'"}],
       "mark": {
         "type": "text",
         "align": "left",
-        "x": 490,
-        "y": 400,
-        "fill": "black",
+        "x": 10,
+        "y": 465,
         "fontSize": 15,
-        "text": "increased"
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "x": 395,
-        "y": 420,
-        "fill": "black",
-        "fontSize": 15,
-        "text": "from"
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "x": 430,
-        "y": 420,
-        "fill": "#fc8d62",
-        "fontSize": 15,
-        "text": "11.9%"
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "x": 475,
-        "y": 420,
-        "fill": "black",
-        "fontSize": 15,
-        "text": "to"
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "x": 493,
-        "y": 420,
-        "fill": "#fc8d62",
-        "fontSize": 15,
-        "text": "17.2%"
+        "font": "Source Sans Pro, sans-serif"
+      },
+      "encoding": {
+        "text": {"field": "changeText", "type": "nominal"}
       }
     }
-  ]
+  ],
+  "config": {
+    "title": {
+      "font": "Source Sans Pro, sans-serif",
+      "fontSize": 16
+    },
+    "axis": {
+      "labelFont": "Source Sans Pro, sans-serif",
+      "titleFont": "Source Sans Pro, sans-serif"
+    },
+    "header": {
+      "labelFont": "Source Sans Pro, sans-serif",
+      "titleFont": "Source Sans Pro, sans-serif"
+    }
+  }
 }

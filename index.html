@@ -8,18 +8,18 @@
   
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-
-
+  <!-- Add the Google Fonts link here -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="background-color: rgb(250, 245, 229);">
+<body style="background-color: rgb(250, 245, 229);font-family: Source Sans Pro, sans-serif">
   <div class="page"> 
 
     <!-- Section: Malaysia's Growth -->
     <div class="pure-g">
         <div class="pure-u-1-1" style="text-align: center; font-size: 28px; border: 1px solid black;background-color: aliceblue;">
             <h1>Malaysia's Growth</h1>
-            <p style="text-align: center; font-size: 25px; line-height: 1;">Malaysia's economy is diverse and growing, heavily reliant on <strong>manufacturing</strong> and <strong>services</strong>.</p>
+            <p style="text-align: center; font-size: 25px; line-height: 1;">Malaysia's economy is growing, heavily reliant on <strong>manufacturing</strong> and <strong>services</strong>.</p>
         </div>
     </div>
 
@@ -27,8 +27,8 @@
     <div class="pure-g">
       <div class="pure-u-1-1" style="text-align: center; padding: 5px;">
           <p>
-              <span style="font-weight: bold; font-size: 24px;">Gross Domestic Product</span><span style="font-size: 24px;"> by States in Malaysia (2015-2023)</span>
-              <br> <span style="font-size: 18px;">GDP reflects the total value of goods and services produced.</span>
+              <span style="font-weight: bold; font-size: 24px;">Gross Domestic Product Per Capita by States in Malaysia (2015-2023)</span>
+              <br> <span style="font-size: 18px;">GDP per capita reflects the average economic output per person.</span>
           </p>
           <hr style="width: 80%; margin: 10px auto;">
           <p><span style="color: #174b87; font-weight: bold; font-size: 21px;">Kuala Lumpur</span> <span style="font-size: 23px;">is Malaysia's economic hub and </span><span style="color: #174b87; font-weight: bold; font-size: 23px;">Selangor</span> <span style="font-size: 23px;">ranking high in GDP.</span></p>
@@ -98,7 +98,7 @@
     <div class="pure-g">
       <div class="pure-u-1-1" style="text-align: center; padding-top: 10px;">
         <p style="font-size: 22px; line-height: 1;">
-          <strong style="color: black; font-weight: bold;">Inflation Rates</strong> across various economic sectors in 2022 and 2023
+          <strong style="color: black; font-weight: bold;">Inflation Rates across various economic sectors in 2022 and 2023</strong> 
         </p>
         <hr style="width: 80%; margin: 10px auto;">
         <p style="font-size: 20px; line-height: 1;">
@@ -124,7 +124,7 @@
     <div class="pure-g">
       <div class="pure-u-1-1" style="text-align: center; padding-top: 10px;">
         <p style="font-size: 22px; line-height: 1;">
-          <span style="color: black; font-weight: bold;">GDP per capita and unemployment rates</span> across different Malaysian states in 2023.
+          <span style="color: black; font-weight: bold;">GDP per capita and unemployment rates across different Malaysian states (2020-2023)</span>
           <br>
           <span style="font-size: 18px;">The size of each bubble represents the population of each state.</span>
         </p>
@@ -134,19 +134,24 @@
           <br>
           <strong style="color: #174b87;">Sabah</strong> stands out with a high unemployment rate (7.5%) and lower GDP per capita.
         </p>
-        <div style="font-size: 15px; color: #666; text-align: center; margin-top: 10px;">
-          You can zoom in on specific areas by clicking and dragging to select a region.
-          <br>
-          To reset the zoom, simply double-click anywhere on the chart.
-        </div>
       </div>
     </div>
 
     <!-- GDP vs Unemployment Scatter Plot -->
-    <div id="container_ScatterPlot">
+    <!-- <div id="container_ScatterPlot">
       <div id="ScatterPlot"></div>
       <script type="text/javascript">
         var spec3 = "js/scatterPlot.vg.json";
+        vegaEmbed('#ScatterPlot', spec3).then(function(result) {
+          // Access the Vega view instance as result.view
+        }).catch(console.error);
+      </script>
+    </div> -->
+
+    <div id="container_ScatterPlot">
+      <div id="ScatterPlot"></div>
+      <script type="text/javascript">
+        var spec3 = "js/scatterPlotYears.vg.json";
         vegaEmbed('#ScatterPlot', spec3).then(function(result) {
           // Access the Vega view instance as result.view
         }).catch(console.error);
@@ -157,7 +162,7 @@
     <div class="pure-g">
       <div class="pure-u-1-1" style="text-align: center; padding-top: 10px;">
         <p style="font-size: 22px; line-height: 1;">
-          <span style="color: black; font-weight: bold;">Inflation rates across ASEAN countries</span>
+          <span style="color: black; font-weight: bold;">Inflation rates across ASEAN countries (2017-2022)</span>
         </p>
         <hr style="width: 80%; margin: 10px auto;">
         <p style="font-size: 20px; line-height: 1;">
@@ -178,6 +183,23 @@
         }).catch(console.error);
       </script>
     </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font" style="text-align: center;">
+        <p>
+          This visualization is created by 
+          <a href="https://github.com/aliciawly/MalaysiaEconomicGrowth.git" target="_blank">Alicia Wong Li Yan</a> on 12 October 2024.
+        </p>
+        <p style="margin-bottom: 0; text-align: left; padding-left: 250px; ">Data Source:</p> 
+        <ul style="list-style-type: disc; padding-left: 20px; text-align: left; display: inline-block; margin-top: 0;">
+          <li><a href="https://www.dosm.gov.my/portal-main/release-content/analysis-of-annual-consumer-price-index-malaysia-2023" target="_blank">Inflation Rate 2023</a> by Ministry of Economy, Department of Statistics Malaysia (16 May 2024)</li>
+          <li><a href="https://www.dosm.gov.my/portal-main/release-content/consumer-price-index-august-2024" target="_blank">Consumer Price Index 2023</a> by Ministry of Economy, Department of Statistics Malaysia (23 September 2024)</li>
+          <li><a href="https://www.dosm.gov.my/portal-main/release-content/advance-gross-domestic-product-gdp-estimates-q22024-" target="_blank">GDP</a> by Ministry of Economy, Department of Statistics Malaysia (19 July 2024)</li>
+        </ul>
+      </div>
+    </div>
+    
+    
 
   </div>
 </body>

@@ -1,0 +1,96 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1300,
+    "height": 500,
+    "background": "rgb(250, 245, 229)",
+    "projection": {
+      "type": "mercator",
+      "scale": 2500,
+      "center": [110, 2]
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/aliciawly/MalaysiaEconomicGrowth/refs/heads/main/data/GDP_Top_States.csv"
+    },
+    "transform": [
+      {
+        "window": [{"op": "rank", "as": "rank"}],
+        "sort": [{"field": "GDP per Capita", "order": "descending"}]
+      },
+      {
+        "filter": "datum.rank <= 5"
+      }
+    ],
+    "mark": {
+      "type": "point",
+      "filled": true,
+      "opacity": 1
+    },
+    "encoding": {
+      "x": {
+        "field": "GDP per Capita",
+        "type": "quantitative",
+        "title": "GDP per Capita",
+        "axis": {
+          "labelAngle": 0,
+          "grid": false,
+          "labelFontSize": 14,
+          "titleFontSize": 14
+        }
+      },
+      "y": {
+        "field": "Unemployment",
+        "type": "quantitative",
+        "title": "Unemployment Rate (%)",
+        "axis": {
+          "grid": false,
+          "ticks": false,
+          "labelFontSize": 14,
+          "titleFontSize": 14
+        }
+      },
+      "size": {
+        "field": "Population",
+        "type": "quantitative",
+        "title": "Population",
+        "scale": {
+          "range": [50, 300],
+          "domain": [1000, 150000]
+        }
+      },
+      "color": {
+        "field": "State",
+        "type": "nominal",
+        "title": "State",
+        "scale": {
+          "domain": [
+            "Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan",
+            "Pahang", "Pulau Pinang", "Perak", "Perlis", "Selangor", "Terengganu",
+            "Sabah", "Sarawak", "Kuala Lumpur", "Labuan"
+          ],
+          "range": [
+            "#4e79a7", "#f28e2c", "#76b7b2", "#59a14f", "#edc949",
+            "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab", "#0092ED",
+            "#b07aa1", "#9467bd", "#8c564b", "#e377c2", "#17becf"
+          ]
+        },
+        "legend": {
+          "titleFontSize": 12,
+          "labelFontSize": 12,
+          "symbolSize": 200
+        }
+      },
+      "opacity": {"value": 0.7},
+      "tooltip": [
+        {"field": "State", "type": "nominal", "title": "State"},
+        {"field": "GDP per Capita", "type": "quantitative", "title": "GDP per Capita", "format": ".3f"},
+        {"field": "Unemployment", "type": "quantitative", "title": "Unemployment Rate"},
+        {"field": "Population", "type": "quantitative", "title": "Population", "format": ".0f"}
+      ]
+    },
+    "config": {
+      "title": {"font": "Source Sans Pro"},
+      "axis": {"labelFont": "Source Sans Pro", "titleFont": "Source Sans Pro"},
+      "legend": {"labelFont": "Source Sans Pro", "titleFont": "Source Sans Pro"},
+      "header": {"labelFont": "Source Sans Pro", "titleFont": "Source Sans Pro"}
+    }
+  }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
+  "width": 1300,
   "height": 500,
   "background": "rgb(250, 245, 229)",
   "projection": {
@@ -9,7 +9,7 @@
     "center": [110, 2]
   },
   "data": {
-    "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/GDP2023.csv"
+    "url": "https://raw.githubusercontent.com/aliciawly/MalaysiaEconomicGrowth/refs/heads/main/data/GDP2023.csv"
   },
   "params": [
     {
@@ -85,7 +85,7 @@
         ],
         "range": [
           "#4e79a7", "#f28e2c", "#76b7b2", "#59a14f", "#edc949",
-          "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab", "#e15759",
+          "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab", "#0092ED",
           "#b07aa1", "#9467bd", "#8c564b", "#e377c2", "#17becf"
         ]
       },
@@ -95,6 +95,7 @@
         "symbolSize": 200
       }
     },
+    "opacity": {"value": 0.7},
     "tooltip": [
       {"field": "State", "type": "nominal", "title": "State"},
       {"field": "GDP per Capita", "type": "quantitative", "title": "GDP per Capita", "format": ".3f"},
@@ -106,5 +107,11 @@
     {
       "filter": "States === 'ALL' || datum.State === States"
     }
-  ]
+  ],
+  "config": {
+    "title": {"font": "Source Sans Pro"},
+    "axis": {"labelFont": "Source Sans Pro", "titleFont": "Source Sans Pro"},
+    "legend": {"labelFont": "Source Sans Pro", "titleFont": "Source Sans Pro"},
+    "header": {"labelFont": "Source Sans Pro", "titleFont": "Source Sans Pro"}
+  }
 }

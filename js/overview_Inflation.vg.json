@@ -1,89 +1,95 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "background": "rgb(250, 245, 229)",
-    "data": {
-      "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/Inflation_Rate.csv"
-    },
-    "vconcat": [
-      {
-        "width": 1000,
-        "height": 500,
-        "encoding": {
-          "x": {
-            "field": "Year",
-            "type": "temporal",
-            "timeUnit": "year",
-            "scale": { "domain": { "param": "brush" } },   
-            "axis": {
-              "format": "%Y",
-              "title": "Year",
-              "grid": false,
-              "labelAngle": 0,
-              "tickCount": "year",
-              "labelFontSize": 14,
-              "titleFontSize": 14
-            }
-          },
-          "y": {
-            "aggregate": "sum",
-            "field": "Total",
-            "type": "quantitative",
-            "title": "Inflation Rate",
-            "axis": {
-              "grid": false,
-              "ticks": false,
-              "labelFontSize": 14,
-              "titleFontSize": 14
-            }
-          },
-          "tooltip": [
-            { "field": "Year", "type": "temporal", "timeUnit": "year", "title": "Year" },
-            { "field": "Total", "type": "quantitative", "title": "Inflation Rate" }
-          ]
-        },
-        "layer": [
-          {
-            "mark": {
-              "type": "area",
-              "color": "rgb(200, 200, 200)"  
-            }
-          },
-          {
-            "transform": [
-              { "filter": { "param": "brush" } }
-            ],
-            "mark": {
-              "type": "area",
-              "color": "rgb(31, 78, 121)"
-            }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "rgb(250, 245, 229)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/aliciawly/MalaysiaEconomicGrowth/refs/heads/main/data/Inflation_Rate.csv"
+  },
+  "config": {
+    "font": "Source Sans Pro, sans-serif",
+    "title": {"font": "Source Sans Pro, sans-serif"},
+    "axis": {"labelFont": "Source Sans Pro, sans-serif", "titleFont": "Source Sans Pro, sans-serif"},
+    "header": {"labelFont": "Source Sans Pro, sans-serif", "titleFont": "Source Sans Pro, sans-serif"},
+    "legend": {"labelFont": "Source Sans Pro, sans-serif", "titleFont": "Source Sans Pro, sans-serif"}
+  },
+  "vconcat": [
+    {
+      "width": 1300,
+      "height": 500,
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "temporal",
+          "timeUnit": "year",
+          "scale": { "domain": { "param": "brush" } },   
+          "axis": {
+            "format": "%Y",
+            "title": "Year",
+            "grid": false,
+            "labelAngle": 0,
+            "tickCount": "year",
+            "labelFontSize": 14,
+            "titleFontSize": 14
           }
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Total",
+          "type": "quantitative",
+          "title": "Inflation Rate",
+          "axis": {
+            "grid": false,
+            "ticks": false,
+            "labelFontSize": 14,
+            "titleFontSize": 14
+          }
+        },
+        "tooltip": [
+          { "field": "Year", "type": "temporal", "timeUnit": "year", "title": "Year" },
+          { "field": "Total", "type": "quantitative", "title": "Inflation Rate" }
         ]
       },
-      {
-        "width": 1000,
-        "height": 60,
-        "mark": "area",
-        "params": [{
-          "name": "brush",
-          "select": { "type": "interval", "encodings": ["x"] }  
-        }],
-        "encoding": {
-          "x": {
-            "field": "Year",
-            "type": "temporal",
-            "timeUnit": "year",
-            "axis": { "format": "%Y", "tickCount": 10,"title": "Year","labelFontSize": 12,
-              "titleFontSize": 12 }
-          },
-          "y": {
-            "aggregate": "sum",
-            "field": "Total",
-            "type": "quantitative",
-            "axis": { "tickCount": 3, "grid": false,"title": "Inflation Rate","labelFontSize": 12,
-              "titleFontSize": 12 }
+      "layer": [
+        {
+          "mark": {
+            "type": "area",
+            "color": "rgb(200, 200, 200)"  
+          }
+        },
+        {
+          "transform": [
+            { "filter": { "param": "brush" } }
+          ],
+          "mark": {
+            "type": "area",
+            "color": "rgb(31, 78, 121)"
           }
         }
+      ]
+    },
+    {
+      "width": 1300,
+      "height": 60,
+      "mark": "area",
+      "params": [{
+        "name": "brush",
+        "select": { "type": "interval", "encodings": ["x"] }  
+      }],
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "temporal",
+          "timeUnit": "year",
+          "axis": { "format": "%Y", "tickCount": 10,"title": "Year","labelFontSize": 12,
+            "titleFontSize": 12 }
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Total",
+          "type": "quantitative",
+          "axis": { "tickCount": 3, "grid": false,"title": "Inflation Rate","labelFontSize": 12,
+            "titleFontSize": 12 }
+        }
       }
-    ]
-  }
-  
+    }
+  ]
+}

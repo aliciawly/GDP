@@ -2,12 +2,12 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  
   "background": "rgb(250, 245, 229)",
-  "width": 1000,
+  "width": 1300,
   "height": 500,
   "projection": {
     "type": "mercator",
-    "scale": 2500,
-    "center": [108, 4]
+    "scale": 3500,
+    "center": [109, 4]
   },
   "data": {
     "url": "https://raw.githubusercontent.com/aliciawly/map/refs/heads/main/js/ne_1.topojson",
@@ -50,7 +50,7 @@
           "lookup": "properties.name",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/aliciawly/GDP/refs/heads/main/data/GDP_year.csv"
+              "url": "https://raw.githubusercontent.com/aliciawly/MalaysiaEconomicGrowth/refs/heads/main/data/GDP_year.csv"
             },
             "key": "State",
             "fields": ["State", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"]
@@ -69,6 +69,7 @@
       "encoding": {
         "color": {
           "field": "GDP per Capita",
+          "title": "GDP per Capita (in MYR)",
           "type": "quantitative",
           "scale": {
             "type": "threshold",
@@ -78,7 +79,9 @@
           "legend": {
             "titleFontSize": 12,
             "labelFontSize": 12,
-            "symbolSize": 200
+            "symbolSize": 200,
+            "titleFont": "Source Sans Pro, sans-serif",
+        "labelFont": "Source Sans Pro, sans-serif"
           }
         },
         "tooltip": [
@@ -94,17 +97,14 @@
         "align": "right",
         "baseline": "top",
         "fontSize": 12,
-        "font": "Source Sans Pro",
+        "font": "Source Sans Pro, sans-serif",
         "fill": "black",
          "fontWeight": "bold"
       },
       "encoding": {
         "text": {"field": "properties.name"},
         "longitude": {"field": "properties.longitude", "type": "quantitative"},
-        "latitude": {"field": "properties.latitude", "type": "quantitative"},
-        "tooltip": [
-          {"field": "properties.name", "type": "nominal", "title": "State"}
-        ]
+        "latitude": {"field": "properties.latitude", "type": "quantitative"}
       }
     }
   ]
